@@ -12,5 +12,10 @@ public class Main {
         System.out.println(elves);
         Elve elveCarryingMostCalories = calc.getElveCarryingMostCalories(elves);
         System.out.println(elveCarryingMostCalories.getTotalCalories());
+        System.out.println("*****************");
+        List<Elve> top3Elves = calc.getTop3EvlveCarryingMostCalories(elves);
+        int totalCalories = top3Elves.stream().mapToInt(elve -> elve.getTotalCalories()).sum();
+        System.out.println("total calories of top 3 Elves : " + totalCalories);
+
     }
 }

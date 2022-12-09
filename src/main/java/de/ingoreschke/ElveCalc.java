@@ -20,6 +20,12 @@ public class ElveCalc {
         return elves;
     }
 
+    /**
+     * Find the Elf carrying the most Calories. How many total Calories is that Elf carrying?
+     *
+     * @param elves
+     * @return the elve which carry the most calories.
+     */
     public Elve getElveCarryingMostCalories(List<Elve> elves){
         int mostTotal = 0;
         Elve strongestElve = null;
@@ -31,4 +37,25 @@ public class ElveCalc {
         }
         return strongestElve;
     }
+
+    /** Find the top three Elves carrying the most Calories. How many Calories are those Elves carrying in total? */
+    public List<Elve> getTop3EvlveCarryingMostCalories(List<Elve> allElves){
+        List<Elve> top3Elevs = new ArrayList<>();
+        List<Elve> worklist = new ArrayList<>(allElves);
+        Elve elve = null;
+
+        for (int i = 0; i < 3; i++) {
+            if (elve != null){
+                worklist.remove(elve);
+            }
+            elve = getElveCarryingMostCalories(worklist);
+            top3Elevs.add(elve);
+        }
+
+
+
+        return top3Elevs;
+    }
+
+
 }
