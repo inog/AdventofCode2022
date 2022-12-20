@@ -10,6 +10,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class ElveCalcTest {
     ElveCalc cut = new ElveCalc();
+
     @Test
     void retrieveElves() {
 
@@ -33,7 +34,7 @@ class ElveCalcTest {
     }
 
     @Test
-    void getTop3EvlveCarryingMostCalories(){
+    void getTop3EvlveCarryingMostCalories() {
         Elve elve = new Elve();
         elve.addCalories(12);
         elve.addCalories(10);
@@ -49,13 +50,11 @@ class ElveCalcTest {
         Elve elve3 = new Elve();
         elve3.addCalories(100);
         elve3.addCalories(100);
-        List<Elve> allElves = Arrays.asList(elve,elve1, elve2, elve3);
+        List<Elve> allElves = Arrays.asList(elve, elve1, elve2, elve3);
         //
         List<Elve> result = cut.getTop3EvlveCarryingMostCalories(allElves);
         assertEquals(3, result.size());
         assertEquals(elve3, result.get(0));
-
-
     }
 
 }
