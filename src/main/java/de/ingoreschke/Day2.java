@@ -1,5 +1,10 @@
 package de.ingoreschke;
 
+import java.security.InvalidParameterException;
+
+/**
+ * https://adventofcode.com/2022/day/2
+ */
 public class Day2 {
 
     private static int A, X = 1; // Rock
@@ -19,13 +24,33 @@ public class Day2 {
 
         int totalofRound = 0;
 
-        if (s[0].equals("A") && s[1].equals("X")){
-            totalofRound = draw + X;
-        } else if (s[0].equals("A") && s[1].equals("Y")) {
-            totalofRound = won + Y;
+        if (s[0].equals("A")) {
+            if (s[1].equals("X")) {
+                totalofRound = draw + X;
+            } else if (s[1].equals("Y")) {
+                totalofRound = won + Y;
+            } else if (s[1].equals("Z")) {
+                totalofRound = lost + Z;
+            }
+        } else if (s[0].equals("B")) {
+            if (s[1].equals("X")) {
+                totalofRound = won + X;
+            } else if (s[1].equals("Y")) {
+                totalofRound = draw + Y;
+            } else if (s[1].equals("Z")) {
+                totalofRound = lost + Z;
+            }
+        } else if (s[0].equals("C")) {
+            if (s[1].equals("X")) {
+                totalofRound = lost + X;
+            } else if (s[1].equals("Y")) {
+                totalofRound = won + Y;
+            } else if (s[1].equals("Z")) {
+                totalofRound = draw + Z;
+            }
+        } else {
+            throw new InvalidParameterException();
         }
         return totalofRound;
     }
-
-
 }
