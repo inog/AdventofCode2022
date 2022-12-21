@@ -1,6 +1,7 @@
 package de.ingoreschke;
 
 import java.security.InvalidParameterException;
+import java.util.List;
 
 /**
  * https://adventofcode.com/2022/day/2
@@ -19,7 +20,11 @@ public class Day2 {
 
     }
 
-    public int calcRound(String input) {
+    int calTotal(List<String> rounds) {
+       return rounds.stream().mapToInt(this::calcRound).sum();
+    }
+
+    int calcRound(String input) {
         String[] s = input.split(" ");
 
         int totalofRound = 0;
@@ -34,11 +39,11 @@ public class Day2 {
             }
         } else if (s[0].equals("B")) {
             if (s[1].equals("X")) {
-                totalofRound = won + X;
+                totalofRound = lost + X;
             } else if (s[1].equals("Y")) {
                 totalofRound = draw + Y;
             } else if (s[1].equals("Z")) {
-                totalofRound = lost + Z;
+                totalofRound = won + Z;
             }
         } else if (s[0].equals("C")) {
             if (s[1].equals("X")) {

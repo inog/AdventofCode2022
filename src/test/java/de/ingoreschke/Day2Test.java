@@ -1,18 +1,36 @@
 package de.ingoreschke;
 
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import java.util.Arrays;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class Day2Test {
-    /** example Input A Y, B X, C Z total score of 15 (8 + 1 +6)
-     *
-     */
+
+    private Day2 cut;
+    @BeforeEach
+    void init () {
+        cut = new Day2();
+    }
+
+
     @Test
     void calcRound() {
-        Day2 day2 = new Day2();
-        assertEquals(8, day2.calcRound("A Y"));
-        assertEquals(4, day2.calcRound("A X"));
-        assertEquals(6, day2.calcRound("C Z"));
+
+        assertEquals(8, cut.calcRound("A Y"));
+        assertEquals(1, cut.calcRound("B X"));
+        assertEquals(6, cut.calcRound("C Z"));
+    }
+
+    /**
+     * example Input A Y, B X, C Z total score of 15 (8 + 1 +6)
+     */    @Test
+    void calcTotal() {
+        List<String> input = Arrays.asList("A Y", "B X", "C Z");
+        assertEquals(15, cut.calTotal(input));
     }
 }
