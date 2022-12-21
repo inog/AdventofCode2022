@@ -21,14 +21,23 @@ class Day2Test {
     @Test
     void calcRound() {
 
-        assertEquals(8, cut.calcRound("A Y"));
-        assertEquals(1, cut.calcRound("B X"));
-        assertEquals(6, cut.calcRound("C Z"));
+        assertEquals(4, cut.calcRound("A X"));  //draw 3 + 1
+        assertEquals(8, cut.calcRound("A Y"));  //won rock , paper 6 + 2
+        assertEquals(3, cut.calcRound("A Z"));  //rock , scissor (3) lost 0 + 3
+
+        assertEquals(1, cut.calcRound("B X"));  //paper, rock  lost  0 + 1
+        assertEquals(5, cut.calcRound("B Y"));  //paper , paper draw 3 + 2
+        assertEquals(9, cut.calcRound("B Z"));  //paper , scissor (3) win 6 + 3
+
+        assertEquals(7, cut.calcRound("C X"));  //scissor, rock  win  6 + 1
+        assertEquals(2, cut.calcRound("C Y"));  //scissor, paper lost 0 + 2
+        assertEquals(6, cut.calcRound("C Z"));  //scissor , scissor (3) draw 3 + 3
     }
 
     /**
      * example Input A Y, B X, C Z total score of 15 (8 + 1 +6)
-     */    @Test
+     */
+    @Test
     void calcTotal() {
         List<String> input = Arrays.asList("A Y", "B X", "C Z");
         assertEquals(15, cut.calTotal(input));

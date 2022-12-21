@@ -5,6 +5,8 @@ import java.util.List;
 
 /**
  * https://adventofcode.com/2022/day/2
+ *
+ * won=6, draw=3, lost=0,  + 1,2,3
  */
 public class Day2 {
 
@@ -17,6 +19,9 @@ public class Day2 {
 
 
     public static void main(String[] args) {
+        List<String> rounds = new FReader("day2.txt").readFile();
+        Day2 day2 = new Day2();
+        System.out.println("Total score : " + day2.calTotal(rounds));
 
     }
 
@@ -47,9 +52,9 @@ public class Day2 {
             }
         } else if (s[0].equals("C")) {
             if (s[1].equals("X")) {
-                totalofRound = lost + X;
+                totalofRound = won + X;
             } else if (s[1].equals("Y")) {
-                totalofRound = won + Y;
+                totalofRound = lost + Y;
             } else if (s[1].equals("Z")) {
                 totalofRound = draw + Z;
             }
